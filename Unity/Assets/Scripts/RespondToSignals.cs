@@ -16,7 +16,7 @@ public class RespondToSignals : MonoBehaviour
 
     private Vector3 originalPosition; // Original position to reset the character to
 
-    public bool useTcpConnection = true; // Flag to toggle between TCP connection and keyboard input for development purposes
+    public bool useWebSocket = true; // Flag to toggle between WebSocket connection and keyboard input for development purposes
 
     Coroutine returnToIdleCoroutine;  
 
@@ -36,7 +36,7 @@ public class RespondToSignals : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (!useTcpConnection)
+        if (!useWebSocket)
         {
             HandleKeyboardInputs();
         }
@@ -48,7 +48,7 @@ public class RespondToSignals : MonoBehaviour
     /// <param name="signal">The signal received from TCP communication.</param>
     public void ReceiveSignal(string signal)
     {
-        if (useTcpConnection)
+        if (useWebSocket)
         {
             // Correctly stop the previous coroutine if it's running
             if (returnToIdleCoroutine != null)

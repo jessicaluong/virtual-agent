@@ -10,7 +10,7 @@ mp_holistic = mp.solutions.holistic
 # Draw detections to the screen
 mp_drawing = mp.solutions.drawing_utils
 # Trained model to classify social signals based on landmarks
-model = load_model('Python/model.keras')
+model = load_model('server/model.keras')
 
 def extract_keypoints(results):
     """

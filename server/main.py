@@ -1,8 +1,9 @@
 import argparse
-from live_stream_processing import capture_and_process_webcam
-from python_server import start_server
+import asyncio
 import threading
 import queue
+from live_stream_processing import capture_and_process_webcam
+from websocket_server import start_server
 
 def main(camera_number=0, dev_mode=False):
     """
@@ -13,7 +14,7 @@ def main(camera_number=0, dev_mode=False):
 
     Parameters:
         camera_number (int): Specifies the camera index to use for video capture.
-        dev_mode (bool): If True, enables development mode which does not start a TCP server. 
+        dev_mode (bool): If True, enables development mode which does not start a WebSocket server. 
     """
     # Threading event to signal server thread to stop
     shutdown_event = threading.Event()
@@ -21,16 +22,21 @@ def main(camera_number=0, dev_mode=False):
     signal_queue = queue.Queue()
 
     if not dev_mode:
-        # Start the server in a separate thread to handle Unity client
-        server_thread = threading.Thread(target=start_server, args=('127.0.0.1', 25001, shutdown_event, signal_queue))
+        # Create and start the server in a separate thread
+        def run_server_thread(): 
+            asyncio.run(start_server("localhost", 25001, shutdown_event, signal_queue))
+
+        server_thread = threading.Thread(target=run_server_thread)
         server_thread.start()
-        print("Unity connection established.")
+        print("WebSocket server started. Waiting for Unity client...")
 
-    capture_and_process_webcam(camera_number, shutdown_event, signal_queue, dev_mode)
-
-    if not dev_mode:
-        server_thread.join()
-        print("Unity connection closed.")
+        try:     
+            capture_and_process_webcam(camera_number, shutdown_event, signal_queue, dev_mode)
+        finally: 
+            server_thread.join()
+            print("Unity connection closed.")
+    else: 
+        capture_and_process_webcam(camera_number, shutdown_event, signal_queue, dev_mode)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process webcam feed and optionally communicate with Unity.")
