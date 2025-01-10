@@ -148,7 +148,7 @@ def capture_and_process_webcam(camera_number, shutdown_event, signal_queue, dev_
         print(f"Actual resolution: {actual_width}x{actual_height}")
 
         try: 
-            while cap.isOpened():
+            while cap.isOpened() and not shutdown_event.is_set():
                 ret, frame = cap.read()
 
                 # Check if frame is grabbed

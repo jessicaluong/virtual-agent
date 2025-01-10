@@ -2,6 +2,7 @@ import argparse
 import asyncio
 import threading
 import queue
+import signal
 from live_stream_processing import capture_and_process_webcam
 from websocket_server import start_server
 
@@ -20,6 +21,12 @@ def main(camera_number=0, dev_mode=False):
     shutdown_event = threading.Event()
     # Thread-safe queue is shared between webcam processing and server communication
     signal_queue = queue.Queue()
+
+    def signal_handler(sig, frame):
+        print("\nSignal received, initiating shutdown...")
+        shutdown_event.set()
+
+    signal.signal(signal.SIGINT, signal_handler)
 
     if not dev_mode:
         # Create and start the server in a separate thread
