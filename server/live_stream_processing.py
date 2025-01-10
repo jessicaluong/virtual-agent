@@ -122,7 +122,7 @@ def capture_and_process_webcam(camera_number, shutdown_event, signal_queue, dev_
     # Variables for signal recognition
     sequence = []
     predictions = []
-    threshold = 0.5
+    threshold = 0.7
     sequence_length = 30
 
     # Predefined social signals
