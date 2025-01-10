@@ -22,8 +22,6 @@ async def wait_for_shutdown(shutdown_event):
         await asyncio.sleep(0.1)
 
 async def start_server(host, port, shutdown_event, signal_queue): 
-    print("Starting server")
-
     async def handler(websocket):
         await handle_client(websocket, shutdown_event, signal_queue)
     
