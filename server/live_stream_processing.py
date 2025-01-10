@@ -128,12 +128,12 @@ def capture_and_process_webcam(camera_number, shutdown_event, signal_queue, dev_
     # Predefined social signals
     signals = np.array(['raise_hand', 'thumbs_up', 'thumbs_down', 'cheer', 'cross_arms', 'clap', 'neutral'])
 
-    # Variables for sending signals to Unity every 1 seconds
-    last_sent_time = time.time() # Initialize the last sent timeq
-    send_interval = 2 # seconds
+    # Variables for sending signals to Unity every 1 second
+    last_sent_time = time.time() # Initialize the last sent time
+    send_interval = 1 # seconds
 
     # Use the Holistic model
-    with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
+    with mp_holistic.Holistic(min_detection_confidence=0.6, min_tracking_confidence=0.8) as holistic:
         # Opens webcam for video capturing
         cap = cv2.VideoCapture(camera_number)
 
