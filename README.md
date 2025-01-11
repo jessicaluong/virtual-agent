@@ -24,7 +24,7 @@ The agent recognizes and responds to the following gestures in real-time:
 
 ### System Architecture 
 
-[Insert system architecture image]
+<img width="1078" alt="system_architecture" src="https://github.com/user-attachments/assets/bb319ee6-fb17-4658-97e7-a1ad3cf7dde8" />
 
 * **Backend**: Python-based gesture processing pipeline
    * MediaPipe Holistic for gesture detection
