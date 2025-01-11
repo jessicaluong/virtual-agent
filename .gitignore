@@ -77,3 +77,6 @@ __pycache__/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# README Assets
+assets/
