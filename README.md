@@ -121,7 +121,6 @@ pip install -r requirements.txt
 
 1. Start the backend server in first terminal:
 ```
-# In first terminal:
 python3 server/main.py               # Default webcam
 # or 
 python3 server/main.py --camera 1    # External webcam
