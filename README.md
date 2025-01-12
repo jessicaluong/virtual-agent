@@ -2,7 +2,7 @@
 
 A real-time virtual agent that recognizes human gestures through webcam input and responds with character animations. The system analyzes user gestures through a Python backend and displays responses via a Unity-based 3D character frontend, connected through WebSocket communication.
 
-[Include GIF/video demo of the agent responding to gestures]
+https://github.com/user-attachments/assets/93241afa-5127-4076-9826-5385e8d60707
 
 ## Gesture Recognition System
 
@@ -17,6 +17,13 @@ The agent recognizes and responds to the following gestures in real-time:
 | Cross arms | Shrugging gesture |
 | 👏 Clap | Clapping animation with happy expression |
 | 😐 Idle (Neutral) | Idle animation |
+
+## Full Demo
+Watch the complete demonstration of all supported gestures and interactions:
+
+<a href="https://youtu.be/4dPzPfJZzws">
+    <img src="https://github.com/user-attachments/assets/3fb49813-8a94-4c94-b39b-eb6b06b13d55" width="600" alt="Demo Video">
+</a>
 
 ## Technologies Used 
 
@@ -39,6 +46,13 @@ The agent recognizes and responds to the following gestures in real-time:
 * **Frontend**: Unity-based character 
    * WebGL build for browser compatibility
    * Real-time character animation
+ 
+## Development Mode Visualization
+Watch the gesture recognition system in action, showing MediaPipe landmark detection and ML model classifications in real-time:
+
+<a href="https://youtu.be/DBwAFqS8oAU">
+    <img src="https://github.com/user-attachments/assets/9fc4d555-fff6-484b-a759-53b9aa598b00" width="500" alt="Demo Video">
+</a>
 
 ## Personal Contribution 
 
