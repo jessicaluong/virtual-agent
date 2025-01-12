@@ -137,8 +137,8 @@ def capture_and_process_webcam(camera_number, shutdown_event, signal_queue, dev_
         # Opens webcam for video capturing
         cap = cv2.VideoCapture(camera_number)
 
-        desired_width = 1280
-        desired_height = 720
+        desired_width = 640
+        desired_height = 480
 
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, desired_width)
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, desired_height)
