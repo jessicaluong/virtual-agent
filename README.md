@@ -96,19 +96,7 @@ The application requires webcam access for gesture detection. All processing hap
 git clone https://github.com/jessicaluong/virtual-agent.git
 cd virtual-agent
 ```
-
-#### 2. Set up Python Environment 
-```
-python3 -m venv venv
-
-source venv/bin/activate  # MacOS
-# or
-venv\Scripts\activate     # Windows
-
-pip install -r requirements.txt
-```
-
-#### 3. Start Application 
+#### 2. Start Application 
 
 ##### Option 1: Quick Start (MacOS only)
 ```
@@ -118,17 +106,26 @@ pip install -r requirements.txt
 ```
 
 ##### Option 2: Manual Start (All platforms)
+1. Set up Python environment: 
+```
+python3 -m venv venv
 
-1. Start the backend server in first terminal:
+source venv/bin/activate  # MacOS
+# or
+venv\Scripts\activate     # Windows
+
+pip install -r requirements.txt
+```
+2. Start the backend server in first terminal:
 ```
 python3 server/main.py               # Default webcam
 # or 
 python3 server/main.py --camera 1    # External webcam
 ```
-2. Start the WebGL server in second terminal: 
+3. Start the WebGL server in second terminal: 
 ```
 python3 serve_webgl.py 8000
 ```
 
-#### 4. View Application
+#### 3. View Application
 Open http://localhost:8000 in your web browser
